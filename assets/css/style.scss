@@ -86,7 +86,7 @@ body {
     &__btn {
       position: absolute;
       top: 50%;
-      transform: translateY(-50%);
+      transform: translateY(calc(-50% + 1px));
       left: 21px;
       display: flex;
       align-items: start;
