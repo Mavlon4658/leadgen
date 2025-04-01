@@ -47,3 +47,14 @@ if (calculations.length) {
     }
   })
 }
+
+const navLinks = document.querySelectorAll('.nav-link');
+if (navLinks.length) {
+  navLinks.forEach(el => {
+    el.onclick = () => {
+      if (window.innerWidth < 992) {
+        document.querySelector('.navbar-toggler').click();
+      }
+    }
+  })
+}
