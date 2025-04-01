@@ -58,3 +58,13 @@ if (navLinks.length) {
     }
   })
 }
+
+const phoneInp = document.querySelectorAll('input[type="tel"]');
+
+if (phoneInp.length) {
+    phoneInp.forEach(el => {
+        IMask(el, {
+            mask: '(000) 000-00-00',
+        })
+    });
+}
