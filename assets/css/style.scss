@@ -121,6 +121,93 @@ body {
   }
 }
 
+// Header
+.header {
+  position: absolute;
+  z-index: 4;
+  width: 100%;
+  padding: 40px 0 10px;
+
+  @include media(1199) {
+    padding-top: 30px;
+  }
+
+  .navbar {
+    padding: 0;
+    
+    &-brand {
+      padding: 0;
+    }
+
+    &-toggler {
+      padding: 0;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      border: 0;
+      background: transparent;
+      color: transparent;
+      box-shadow: none;
+      outline: none;
+      
+      @include media(991) {
+        display: flex;
+      }
+
+      img:nth-child(2) {
+        display: none;
+      }
+
+      &[aria-expanded="true"] {
+        img {
+          display: none;
+
+          &:nth-child(2) {
+            display: block;
+          }
+        }
+      }
+    }
+
+    &-collapse {
+      transition: inherit;
+
+      @include media(991) {
+        width: calc(100% + 80px);
+        min-width: calc(100% + 80px);
+        margin-left: -40px;
+        height: calc(100svh - 75px);
+        padding: 30px 40px 0;
+
+        &.show {
+          background: white;
+        }
+      }
+    }
+
+    &-nav {
+      gap: 30px;
+      
+    }
+
+    .nav {
+      &-item {
+        padding: 0;
+        padding-bottom: 8px;
+      }
+
+      &-link {
+        padding: 0;
+        font-size: 17px;
+        font-weight: 400;
+        color: black;
+      }
+    }
+  }
+}
+// Header end
+
 // Home
 .home {
   position: relative;
@@ -155,7 +242,7 @@ body {
 
   .container {
     gap: 20px;
-    padding: 100px 0 536px;
+    padding: 195px 0 536px;
 
     @include media(1199) {
       padding: 195px 0 480px;
@@ -552,6 +639,7 @@ body {
     background: #3577FF;
     padding: 20px 30px 30px;
     width: 100%;
+    position: relative;
 
     h3 {
       font-size: 20px;
@@ -867,3 +955,301 @@ body {
   }
 }
 // Footer end
+
+.modal-backdrop {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 40%) !important;
+  
+  &.show {
+    opacity: 1 !important;
+  }
+}
+
+// Thanks modal
+.thanks-modal {
+  --bs-modal-width: 386px;
+
+  .modal {
+    &-dialog {
+      @include media(575) {
+        width: calc(100% - 80px);
+        margin: 0 auto;
+      }
+    }
+
+    &-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 24px;
+      height: 24px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &-content {
+      background: #3577FF;
+      padding: 20px 30px 30px;
+      border: 0;
+    }
+  }
+
+  h2 {
+    font-size: 20px;
+    font-weight: 500;
+    color: white;
+    margin-bottom: 20px;
+
+    @include media(767) {
+      font-size: 17px;
+    }
+  }
+}
+// Thanks modal end
+
+// Cost calculation
+.cost-modal {
+  .modal {
+    &-close {
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      align-items: center;
+      justify-content: center;
+      top: 20px;
+      right: 20px;
+
+      @include media(767) {
+        top: 30px;
+        right: 40px;
+      }
+    }
+
+    &-dialog {
+      width: calc(100% - 80px);
+      max-width: 1218px;
+      margin: 0 auto;
+      min-height: 100svh;
+      height: 100svh;
+
+      @include media(767) {
+        background: white;
+        width: 100%;
+      }
+    }
+
+    &-content {
+      border: 0;
+      background: transparent;
+      gap: 30px;
+
+      @include media(767) {
+        padding: 30px 40px;
+      }
+    }
+  }
+  
+  &__content {
+    background: white;
+    padding: 20px 30px 30px;
+    border-radius: 30px;
+
+    @include media(767) {
+      padding: 0;
+    }
+
+    h2 {
+      font-size: 24px;
+      font-weight: 600;
+      color: #0C1618;
+      text-align: center;
+      text-transform: uppercase;
+      margin-bottom: 30px;
+
+      @include media(767) {
+        font-size: 20px;
+      }
+    }
+
+    h5 {
+      font-size: 17px;
+      font-weight: 400;
+      color: #ADADAD;
+      width: 50%;
+      padding-bottom: 20px;
+
+      @include media(991) {
+        width: calc((100% - 90px) / 2);
+
+        &:nth-child(2) {
+          width: calc(100% - ((100% - 90px) / 2));
+        }
+      }
+    }
+
+    ul {
+      max-height: calc(100svh - 370px);
+      overflow-y: scroll;
+
+      @include media(767) {
+        max-height: calc(100svh - 238px);
+      }
+      
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      li {
+        padding: 20px 0;
+        border-bottom: 1px solid #E6E6E6;
+
+        &:nth-child(1) {
+          padding-top: 0;
+        }
+      }
+
+      .row {
+        @include media(767) {
+          --bs-gutter-y: 20px;
+        }
+      }
+
+      .d-flex {
+        @include media(767) {
+          gap: 20px;
+        }
+      }
+    }
+
+    p {
+      color: #202020;
+      font-size: 20px;
+      font-weight: 500;
+      width: 50%;
+
+      @include media(767) {
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+    .calculation {
+      width: 90px;
+      flex-shrink: 0;
+
+      &-wrap {
+        width: 90px;
+        flex-shrink: 0;
+
+        @include media(991) {
+          display: none;
+        }
+      }
+
+      button {
+        background: #3577FF;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+
+        &.disabled {
+          background: #ADADAD;
+          user-select: none;
+          cursor: default;
+        }
+      }
+
+      &-value {
+        width: 48px;
+        flex-shrink: 0;
+        font-size: 20px;
+        line-height: 24px;
+        color: #202020;
+        font-weight: 500;
+        text-align: center;
+      }
+    }
+
+    &-bottom {
+      background: white;
+      border-radius: 30px;
+      padding: 30px;
+
+      @include media(767) {
+        padding: 0;
+      }
+
+      h5 {
+        font-size: 24px;
+        font-weight: 600;
+      }
+
+      h3 {
+        font-size: 36px;
+        font-weight: bold;
+        color: #0C1618;
+
+        @include media(767) {
+          font-size: 26px;
+        }
+      }
+
+      div {
+        gap: 20px;
+
+        @include media(767) {
+          gap: 10px;
+          width: 100%;
+
+          .btn {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+// Cost calculation end
+
+// Form modal
+.form-modal {
+  .modal {
+    &-dialog {
+      width: calc(100% - 80px);
+      max-width: 594px;
+      margin: 0 auto;
+
+      @include media(1199) {
+        max-width: 456px;
+      }
+
+      @include media(991) {
+        max-width: 329px;
+      }
+
+      @include media(767) {
+        max-width: 100%;
+      }
+    }
+
+    &-content {
+      border: 0;
+      background: transparent;
+    }
+
+    &-close {
+      width: 24px;
+      height: 24px;
+      justify-content: center;
+      align-items: center;
+      top: 10px;
+      right: 10px;
+      position: absolute;
+    }
+  }
+}
+// Form modal end
