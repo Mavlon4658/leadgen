@@ -83,7 +83,7 @@ body {
   &-tel {
     position: relative;
 
-    button {
+    &__btn {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
