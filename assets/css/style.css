@@ -160,12 +160,14 @@ body {
 }
 .form-tel__btn span {
   font-size: 17px;
+  line-height: 20px;
   font-weight: 400;
   color: #0C1618;
   font-family: "Exo 2", sans-serif;
 }
 .form-tel input {
   padding-left: 83px;
+  line-height: 20px;
 }
 @media screen and (max-width: 767px) {
   .form-tel input {
