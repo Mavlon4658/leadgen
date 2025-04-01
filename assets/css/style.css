@@ -146,7 +146,7 @@ body {
 .form-tel__btn {
   position: absolute;
   top: 50%;
-  transform: translateY(calc(-50% + 1px));
+  transform: translateY(calc(-50% + 0.5px));
   left: 21px;
   display: flex;
   align-items: start;
