@@ -34,7 +34,14 @@ body {
   }
 
   &-primary {
+    // background: #FFC600;
     --bs-btn-bg: #3577FF;
+    --bs-btn-hover-bg: #FFC600;
+    --bs-btn-hover-color: #000000;
+    --bs-btn-hover-border-color: #FFC600;
+    --bs-btn-active-bg: transparent;
+    --bs-btn-active-color: #3577FF;
+    --bs-btn-active-border-color: #3577FF;
   }
   
   &-outline-primary {
@@ -46,6 +53,14 @@ body {
     --bs-btn-bg: #FFC600;
     color: #0C1618;
     
+    &:hover {
+      background: #FFDA14;
+    }
+
+    &:active {
+      background: transparent !important;
+      color: #FFC600 !important;
+    }
   }
 }
 // Btn end
@@ -77,6 +92,11 @@ body {
     
     &::placeholder {
       color: #ADADAD;
+    }
+
+    &:hover, &:focus {
+      outline: 2px solid #FFC600;
+      border: 0;
     }
   }
 
@@ -204,6 +224,33 @@ body {
         font-size: 17px;
         font-weight: 400;
         color: black;
+        position: relative;
+
+        &::before {
+          content: "";
+          position: absolute;
+          bottom: -8px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 0;
+          height: 4px;
+          background: #FFC600;
+          transition: .3s ease all;
+        }
+
+        &:hover {
+          &::before {
+            width: 100%;
+          }
+        }
+
+        &:active {
+          color: #EBB200;
+
+          &::before {
+            width: 100%;
+          }
+        }
       }
     }
   }
@@ -847,8 +894,16 @@ body {
     --bs-accordion-border-radius: 16px;
     --bs-accordion-inner-border-radius: 16px;
 
+    &-header {
+      background: transparent !important;
+    }
+
     &-item {
       border: 0;
+    }
+
+    &-body {
+      padding-top: 0;
     }
 
     button {
@@ -862,6 +917,8 @@ body {
       align-items: center;
       justify-content: space-between;
       gap: 10px;
+      transition: .3s ease all;
+      background: transparent !important;
 
       @include media(1199) {
         font-size: 20px;
@@ -882,6 +939,30 @@ body {
       &[aria-expanded="true"] {
         svg {
           transform: rotateZ(180deg);
+        }
+      }
+
+      &:hover {
+        color: #FFC600;
+
+        span {
+          color: #FFC600;
+        }
+
+        svg path {
+          stroke: #FFC600;
+        }
+      }
+
+      &:active {
+        color: #EBB200;
+
+        span {
+          color: #EBB200;
+        }
+
+        svg path {
+          stroke: #EBB200;
         }
       }
     }
@@ -954,6 +1035,16 @@ body {
     font-size: 15px;
     font-weight: 400;
     color: white;
+  }
+
+  a {
+    &:hover {
+      color: #FFC600;
+    }
+
+    &:active {
+      color: #EBB200;
+    }
   }
 }
 // Footer end
@@ -1108,6 +1199,10 @@ body {
         &:nth-child(1) {
           padding-top: 0;
         }
+
+        &:hover p {
+          color: #3577FF;
+        }
       }
 
       .row {
@@ -1157,6 +1252,11 @@ body {
         align-items: center;
         justify-content: center;
         flex-shrink: 0;
+        transition: .2s ease all;
+
+        &:hover {
+          background: #FFC600;
+        }
 
         &.disabled {
           background: #ADADAD;

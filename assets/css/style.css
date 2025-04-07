@@ -101,6 +101,12 @@ body {
 }
 .btn-primary {
   --bs-btn-bg: #3577FF;
+  --bs-btn-hover-bg: #FFC600;
+  --bs-btn-hover-color: #000000;
+  --bs-btn-hover-border-color: #FFC600;
+  --bs-btn-active-bg: transparent;
+  --bs-btn-active-color: #3577FF;
+  --bs-btn-active-border-color: #3577FF;
 }
 .btn-outline-primary {
   --bs-btn-border-color: #3577FF;
@@ -109,6 +115,13 @@ body {
 .btn-warning {
   --bs-btn-bg: #FFC600;
   color: #0C1618;
+}
+.btn-warning:hover {
+  background: #FFDA14;
+}
+.btn-warning:active {
+  background: transparent !important;
+  color: #FFC600 !important;
 }
 
 .sec-title {
@@ -139,6 +152,10 @@ body {
 }
 .form-control::placeholder {
   color: #ADADAD;
+}
+.form-control:hover, .form-control:focus {
+  outline: 2px solid #FFC600;
+  border: 0;
 }
 .form-tel {
   position: relative;
@@ -245,6 +262,27 @@ body {
   font-size: 17px;
   font-weight: 400;
   color: black;
+  position: relative;
+}
+.header .navbar .nav-link::before {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 4px;
+  background: #FFC600;
+  transition: 0.3s ease all;
+}
+.header .navbar .nav-link:hover::before {
+  width: 100%;
+}
+.header .navbar .nav-link:active {
+  color: #EBB200;
+}
+.header .navbar .nav-link:active::before {
+  width: 100%;
 }
 
 .home {
@@ -854,8 +892,14 @@ body {
   --bs-accordion-border-radius: 16px;
   --bs-accordion-inner-border-radius: 16px;
 }
+.answer .accordion-header {
+  background: transparent !important;
+}
 .answer .accordion-item {
   border: 0;
+}
+.answer .accordion-body {
+  padding-top: 0;
 }
 .answer .accordion button {
   border: none;
@@ -868,6 +912,8 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 10px;
+  transition: 0.3s ease all;
+  background: transparent !important;
 }
 @media screen and (max-width: 1199px) {
   .answer .accordion button {
@@ -885,6 +931,24 @@ body {
 }
 .answer .accordion button[aria-expanded=true] svg {
   transform: rotateZ(180deg);
+}
+.answer .accordion button:hover {
+  color: #FFC600;
+}
+.answer .accordion button:hover span {
+  color: #FFC600;
+}
+.answer .accordion button:hover svg path {
+  stroke: #FFC600;
+}
+.answer .accordion button:active {
+  color: #EBB200;
+}
+.answer .accordion button:active span {
+  color: #EBB200;
+}
+.answer .accordion button:active svg path {
+  stroke: #EBB200;
 }
 .answer .accordion p {
   font-size: 17px;
@@ -944,6 +1008,12 @@ body {
   font-size: 15px;
   font-weight: 400;
   color: white;
+}
+.footer a:hover {
+  color: #FFC600;
+}
+.footer a:active {
+  color: #EBB200;
 }
 
 .modal-backdrop {
@@ -1085,6 +1155,9 @@ body {
 .cost-modal__content ul li:nth-child(1) {
   padding-top: 0;
 }
+.cost-modal__content ul li:hover p {
+  color: #3577FF;
+}
 @media screen and (max-width: 767px) {
   .cost-modal__content ul .row {
     --bs-gutter-y: 20px;
@@ -1129,6 +1202,10 @@ body {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  transition: 0.2s ease all;
+}
+.cost-modal__content .calculation button:hover {
+  background: #FFC600;
 }
 .cost-modal__content .calculation button.disabled {
   background: #ADADAD;
